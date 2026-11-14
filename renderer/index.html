@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Runbook</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <img class="brand-mark" src="../build/icon.png" width="39" height="39" alt="" />
+          <div><strong>Runbook</strong><small>Developer playbooks</small></div>
+        </div>
+        <div class="sidebar-label">WORKSPACE</div>
+        <button class="nav active" id="all">
+          ▦ &nbsp; All playbooks <span id="count">0</span>
+        </button>
+        <div class="sidebar-bottom">
+          <span class="status-dot"></span><span id="connection">Connecting to Autopass…</span>
+        </div>
+      </aside>
+      <main class="main">
+        <header class="top" id="top">
+          <div>
+            <div class="eyebrow">YOUR WORKSPACE</div>
+            <h1>Playbook library</h1>
+            <p>Reliable steps for when things go wrong.</p>
+          </div>
+          <button id="seed" class="secondary">Add example playbooks</button
+          ><button id="new" class="primary">＋ New playbook</button>
+        </header>
+        <div class="toolbar" id="toolbar">
+          <input
+            id="search"
+            type="search"
+            placeholder="Search playbooks…"
+            aria-label="Search playbooks"
+          /><select id="filter" aria-label="Filter category">
+            <option value="">All categories</option>
+            <option>Frontend</option>
+            <option>Deployment</option>
+            <option>Infrastructure</option>
+            <option>General</option>
+          </select>
+        </div>
+        <div id="message" role="status" aria-live="polite"></div>
+        <button id="retry-storage" class="secondary" hidden>Retry connection</button>
+        <div id="library" class="library"><div class="empty">Loading playbooks…</div></div>
+        <nav id="pagination" aria-label="Playbook pages" hidden>
+          <button id="previous" class="secondary">Previous</button
+          ><span id="page-status" role="status"></span
+          ><button id="next" class="secondary">Next</button>
+        </nav>
+        <section id="detail" hidden tabindex="-1"></section>
+      </main>
+    </div>
+    <dialog id="editor" aria-labelledby="editor-heading">
+      <form id="form">
+        <div class="dialog-header">
+          <div>
+            <div class="eyebrow">NEW PLAYBOOK</div>
+            <h2 id="editor-heading">Create a recovery guide</h2>
+          </div>
+          <button type="button" class="icon-btn" id="close" aria-label="Close">×</button>
+        </div>
+        <label
+          >Title<input
+            name="title"
+            maxlength="120"
+            required
+            placeholder="e.g. React app shows a blank screen" /></label
+        ><label
+          >Category<select name="category">
+            <option>Frontend</option>
+            <option>Deployment</option>
+            <option>Infrastructure</option>
+            <option>General</option>
+          </select></label
+        ><label
+          >Description<textarea
+            name="description"
+            maxlength="1000"
+            rows="2"
+            placeholder="What problem does this playbook solve?"
+          ></textarea></label
+        ><label
+          >Recovery steps <small>One instruction per line</small
+          ><textarea
+            name="steps"
+            rows="6"
+            required
+            placeholder="Check browser console errors&#10;Verify production assets&#10;Inspect environment configuration"
+          ></textarea>
+        </label>
+        <p id="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" class="secondary" id="cancel">Cancel</button
+          ><button class="primary" type="submit">Save playbook</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="confirm-delete" aria-labelledby="confirm-heading">
+      <div class="eyebrow">DELETE PLAYBOOK</div>
+      <h2 id="confirm-heading">Delete this playbook?</h2>
+      <p class="muted">
+        “<strong id="delete-title"></strong>” will be permanently removed. This cannot be undone.
+      </p>
+      <div class="dialog-actions">
+        <button type="button" class="secondary" id="delete-cancel">Cancel</button
+        ><button type="button" class="danger danger-solid" id="delete-accept">
+          Delete playbook
+        </button>
+      </div>
+    </dialog>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

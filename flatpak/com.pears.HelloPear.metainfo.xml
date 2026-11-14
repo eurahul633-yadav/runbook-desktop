@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Unverified distribution template. Legacy IDs are retained for continuity.
+     The maintainer must supply metadata/project licenses and release details
+     before publishing; no license or publisher identity is asserted here. -->
+<component type="desktop-application">
+  <id>com.pears.HelloPear</id>
+  <name>Runbook</name>
+  <summary>Developer recovery playbooks powered by Autopass</summary>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <description>
+    <p>Runbook stores categorized recovery guides in Autopass, with searchable checklists and session-local progress.</p>
+  </description>
+  <launchable type="desktop-id">com.pears.HelloPear.desktop</launchable>
+</component>

@@ -1,0 +1,64 @@
+# Dependencies and generated builds
+node_modules/
+out/
+dist/
+coverage/
+.nyc_output/
+.cache/
+*.tsbuildinfo
+# Local application/test storage
+runbook-data/
+pear-runtime/
+app-storage/
+.test-storage/
+.local-storage/
+runbook-ui-*/
+runbook-branding-*/
+runbook-normal-verification-*/
+runbook-test-*/
+runbook-*-test-*/
+tmp/
+temp/
+*.tmp
+*.sqlite
+*.sqlite3
+*.db
+# Local secrets and signing material
+.env
+.env.*
+.npmrc
+.netrc
+credentials
+credentials.json
+id_rsa
+id_ed25519
+.aws/
+.ssh/
+*.key
+*.pem
+*.p12
+*.pfx
+*.jks
+*.mobileprovision
+*.provisionprofile
+# Private local configuration and editor/tooling state
+.local/
+.private/
+.tooling/
+.local-tooling/
+*.local.*
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+# Explicit safeguards for private instruction files and tool state
+.agents/
+.codex/
+AGENTS*.md
+agent_docs/
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
